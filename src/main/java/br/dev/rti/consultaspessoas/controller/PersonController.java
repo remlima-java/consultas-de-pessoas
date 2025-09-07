@@ -1,12 +1,13 @@
 package br.dev.rti.consultaspessoas.controller;
 
-import br.dev.rti.consultaspessoas.entity.Person;
+import br.dev.rti.consultaspessoas.entity.dtos.PersonDto;
 import br.dev.rti.consultaspessoas.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/person")
@@ -17,22 +18,22 @@ public class PersonController {
 
 
     @PostMapping
-    public ResponseEntity<Person> save(@RequestBody Person person) {
-        return ResponseEntity.ok(this.personService.save(person));
+    public ResponseEntity<PersonDto> save(@RequestBody PersonDto personDto) {
+        return ResponseEntity.ok(this.personService.save(personDto));
     }
-
+/*
     @GetMapping
-    public ResponseEntity<List<Person>> findAll() {
+    public ResponseEntity<List<PersonDto>> findAll() {
         return ResponseEntity.ok(this.personService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Person> findOne(@PathVariable Long id) {
+    public ResponseEntity<PersonDto> findOne(@PathVariable Long id) {
         return ResponseEntity.ok(this.personService.findById(id));
     }
 
     @PutMapping
-    public ResponseEntity<Person> update(@RequestBody Person person) {
+    public ResponseEntity<PersonDto> update(@RequestBody Person person) {
         return ResponseEntity.ok(this.personService.update(person));
     }
 
@@ -40,5 +41,5 @@ public class PersonController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.personService.delete(id);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 }
